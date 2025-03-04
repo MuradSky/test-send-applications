@@ -72,7 +72,7 @@ export async function POST(
   } catch(error) {
     console.log(error)
     return new NextResponse(
-      JSON.stringify({ message: 'Ошибка при обработке данных' }),
+      JSON.stringify({ message: 'Ошибка при обработке данных', error: error }),
       { 
         status: 400,
         headers: { 'Content-Type': 'application/json' }
