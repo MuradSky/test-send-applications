@@ -4,8 +4,8 @@ import nodemailer from 'nodemailer';
 import fs from "fs";
 import path from "path";
 
-console.log(process.env.GMAIL_USER)
-console.log(process.env.GMAIL_PASS)
+const GMAIL_USER = 'skytechnic.music@gmail.com'
+const GMAIL_PASS = 'tkfq ozqm xngm qidy' 
 
 const schema = Joi.object({
   surname: Joi.string().min(1).required(),
@@ -25,8 +25,8 @@ export async function POST(
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.GMAIL_USER, // Ваш Gmail
-      pass: process.env.GMAIL_PASS, // Ваш пароль приложения
+      user: GMAIL_USER, // Ваш Gmail
+      pass: GMAIL_PASS, // Ваш пароль приложения
     },
   });
 
@@ -50,8 +50,8 @@ export async function POST(
     fs.appendFileSync(csvFilePath, newEntry, "utf8");
 
     const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, // На какой email отправляется заявка
+      from: GMAIL_USER,
+      to: GMAIL_USER, // На какой email отправляется заявка
       subject: 'Новая заявка с сайта',
       text: `
         Имя: ${value.name}
