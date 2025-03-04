@@ -3,7 +3,7 @@ import path from 'path';
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'public', 'applications.csv');
+    const filePath = path.join(process.cwd(), 'doc', 'applications.csv');
     
     if (!fs.existsSync(filePath)) {
       return new Response(JSON.stringify({ message: 'Файл не найден' }), {
@@ -14,7 +14,15 @@ export async function GET() {
 
     const fileStream = fs.createReadStream(filePath);
     
-    return new Response(fileStream, {
+    const readableStream = new ReadableStream({
+      start(controller) {
+        fileStream.on('data', (chunk) => controller.enqueue(chunk));
+        fileStream.on('end', () => controller.close());
+        fileStream.on('error', (err) => controller.error(err));
+      },
+    });
+
+    return new Response(readableStream, {
       status: 200,
       headers: {
         'Content-Type': 'text/csv',
