@@ -3,7 +3,7 @@ import path from 'path';
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'doc', 'applications.csv');
+    const filePath = path.join(process.cwd(), 'tmp', 'applications.csv');
     
     if (!fs.existsSync(filePath)) {
       return new Response(JSON.stringify({ message: 'Файл не найден' }), {
