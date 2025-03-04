@@ -272,3 +272,17 @@ a.secondary {
 .error {
   color: red;
 }
+
+.download {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.download button {
+  padding: 12px;
+  border-radius: 30px;
+  background-color: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+}

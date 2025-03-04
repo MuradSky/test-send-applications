@@ -47,9 +47,24 @@ export default function Home() {
     })
   }
 
+  const downloadCSV = () => {
+    const link = document.createElement("a");
+    link.href = "/api/download";
+    link.setAttribute("download", "applications.csv");
+  
+    // Обязательно примените атрибут для предотвращения открытия файла
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <div className={styles.download}>
+          <button onClick={downloadCSV}>📥 Скачать CSV</button>
+        </div>
+
         <div className={styles.form}>
           <form onSubmit={sumbitEvent}>
             <div className={styles.row}>
