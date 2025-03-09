@@ -1,0 +1,199 @@
+@property --angle {
+	syntax: '<angle>';
+	inherits: true;
+	initial-value: 0deg;
+}
+
+
+.block {
+  position: relative;
+  padding-bottom: 130px;
+
+  .dots_grid {
+    position: absolute;
+    left: -10.7%;
+    bottom: 47%;
+    z-index: -1;
+
+    width: 486px;
+    height: 224px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px 0;
+  }
+
+  .circle {
+    position: absolute;
+    left: -5%;
+    bottom: 6%;
+    z-index: -1;
+  }
+
+  .cross {
+    position: absolute;
+    bottom: 18%;
+    right: -4%;
+    z-index: -2;
+  }
+
+  .shark {
+    position: absolute;
+    z-index: -1;
+    top: 25%;
+    right: 5.5%;
+    width: 222px;
+  }
+
+  .title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 50px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px 0;
+  
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px 0;
+    }
+
+    .date {
+      font-weight: 700;
+      font-size: 30px;
+      background-color: var(--color-pink);
+      width: 100%;
+      padding: 18px;
+      border-radius: 60px;
+      height: 73px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .list {
+
+      li {
+        position: relative;
+        border-radius: 500px;
+        border: 1px solid rgba($color: #fff, $alpha: 0.1);
+        margin: -1px;
+        overflow: hidden;
+        padding: 1px;
+
+        cursor: pointer;
+        &:hover {
+          position: relative;
+          z-index: 100;
+          .time span {
+            background-color: transparent; 
+          }
+
+          .time::after {
+            opacity: 1;
+          }
+
+          &::before {
+            opacity: 1;
+            animation: rotation 5s linear infinite;
+          }
+        }        
+
+        
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 100%;
+          z-index: 1;
+          inset: 0;
+          padding: 2px;
+          background: conic-gradient(from var(--angle) at 50% 50%, #E40F95 0deg, #6FCFEB 360deg);
+          background-size: 50% 100%;
+          transition: all 0.3s ease-in-out;
+          opacity: 0;
+        }
+      }
+
+      .inner {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        display: flex;
+        align-items: center;
+        gap: 0 38px;
+        padding: 20px;
+        height: 71px;
+        background-color: var(--color-blue-100);
+        border-radius: 500px;
+      }
+
+      .time {
+        position: relative;
+        font-weight: 700;        
+        overflow: hidden;
+        border-radius: 60px;
+        padding: 1px;
+        margin: -1px;
+
+        span {
+          position: relative;
+          z-index: 2;
+          display: block;
+          padding: 8px 18px;
+          background-color: var(--color-blue-100);
+          border-radius: 60px;
+          transition: all 0.3s ease-in-out;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 100%;
+          background: conic-gradient(from 179.74deg at 50% 50%, #E40F95 0deg, #6FCFEB 360deg);
+          background-size: 50% 100%;
+          z-index: 1;
+          opacity: 1;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 100%;
+          background: linear-gradient(72.05deg, #E40F95 2.14%, #6FCFEB 88.72%);
+          background-size: 50% 100%;
+          z-index: 1;
+          opacity: 0;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@keyframes rotation {
+  from { --angle: 176deg; }
+	to { --angle: 536deg; }
+}

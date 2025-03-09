@@ -1,0 +1,42 @@
+.group {
+
+  .label {
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 13px;
+  }
+
+  .flex {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  label {
+    font-weight: 500;
+    position: relative;
+    display: block;
+    border-radius: 60px;
+    border: 1px solid #7C7C7C;
+    background-color: #fff;
+    height: 56px;
+    padding: 18px 24px;
+    color: #000;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &.is_active,
+    &:hover {
+      border-color: #272E5F;
+      background-color: #272E5F;
+      color: #fff
+    }
+  }
+
+  label input {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+}

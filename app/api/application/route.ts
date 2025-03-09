@@ -38,7 +38,7 @@ export async function POST(
     fileWork(value)
 
     const mailOptions = {
-      from: process.env.GMAIL_USER,
+      from: `${value.name} ` + process.env.GMAIL_USER,
       to: process.env.GMAIL_USER, // На какой email отправляется заявка
       subject: 'Новая заявка с сайта',
       text: `
@@ -50,6 +50,7 @@ export async function POST(
         Профессия: ${value.occupation}
         Дни конференции: ${value.conferenceDays}
       `,
+      replyTo: value.email,
     };
 
 

@@ -1,0 +1,47 @@
+.element {
+  width: 486px;
+  height: 224px;
+
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  
+  .point {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
+    border-radius: 50%;
+    background-color: #6FCFEB;
+
+    
+  }
+
+  .point {
+    &[data-index="49"],
+    &[data-index="50"],
+    &[data-index="63"],
+    &[data-index="64"] {
+      animation: animate 5s linear infinite;
+    }
+  }
+}
+
+
+@keyframes animate {
+  from {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(.5);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  75% {
+    transform: scale(.5);
+  }
+  to {
+    transform: scale(1)
+  }
+}

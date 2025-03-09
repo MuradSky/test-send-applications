@@ -1,0 +1,65 @@
+@mixin amitionOrder() {
+  @for $i from 1 through 21 {
+    $delay: $i * .2;
+    .path_#{$i} {
+      animation-delay: #{$delay}s;
+    }
+  }  
+}
+
+.element {
+  
+
+  &.is_anim {
+    &.is_pink {
+      path {
+        animation: pulseAnim1 1s linear forwards;
+      }
+    
+      @include amitionOrder();
+    }
+    
+    &.is_blue {
+      path {
+        animation: pulseAnim2 1s linear forwards;
+      }
+
+      @include amitionOrder();
+    }
+
+    &.is_gold {
+      path {
+        animation: pulseAnim3 1s linear forwards;
+      }
+
+      @include amitionOrder();
+    }
+  }
+}
+
+@keyframes pulseAnim1 {
+  from {
+    stroke: #E40F95;
+  }
+  to {
+    stroke: #6FCFEB;
+  }
+}
+
+@keyframes pulseAnim2 {
+  from {
+    stroke: #6FCFEB;
+  }
+  to {
+    stroke: #E9A45D;
+  }
+}
+
+@keyframes pulseAnim3 {
+  from {
+    stroke: #E9A45D;
+  }
+  to {
+    stroke: #E40F95;
+  }
+}

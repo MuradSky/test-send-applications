@@ -1,0 +1,107 @@
+@property --angle {
+	syntax: '<angle>';
+	inherits: true;
+	initial-value: 0deg;
+}
+
+.block {
+  position: relative;
+  padding: 42px 0 163px;
+
+  .dotsGrid {
+    position: absolute;
+    top: 5.5%;
+    right: -7.5%;
+    z-index: -1;
+
+    width: 486px;
+    height: 224px;
+  }
+
+  .circle {
+    position: absolute;
+    top: 15%;
+    left: -2%;
+  }
+
+  .date {
+    width: 100%;
+    max-width: 378px;
+    margin: 0 auto;
+
+    .inner {
+      overflow: hidden;
+      position: relative;
+      border-radius: 60px;
+      padding: 2px;
+      margin: -2px;
+    }
+
+    span {
+      display: block;
+      position: relative;
+      z-index: 2;
+      padding: 18px 30px;
+      border-radius: inherit;
+      background-color: var(--color-blue-100);
+
+      font-weight: 700;
+      font-size: 34px;
+      height: 77px;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .inner::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: conic-gradient(from var(--angle) at 50% 50%, #E40F95 0deg, #6FCFEB 360deg);
+      background-size: 50% 100%;
+      border-radius: inherit;
+
+      animation: rotation 8s linear infinite;
+    }
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+    gap: 18px 0;
+  }
+
+  .content .top {
+    display: flex;
+    align-items: center;
+    gap: 0 68px;
+    margin-left: 3.5%;
+
+    .firstLine {
+      width: 362px;
+      margin-top: 18px;
+    }
+  }
+
+  .content .bottom {
+    display: flex;
+    align-items: center;
+    gap: 0 61px;
+    margin-right: -3%;
+
+    .firstArrows {
+      width: 217px;
+    }
+  }
+}
+
+@keyframes rotation {
+  from { --angle: 176deg; }
+	to { --angle: 536deg; }
+}

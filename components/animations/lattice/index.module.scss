@@ -1,0 +1,168 @@
+.element {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.is_anim {
+    path {
+      animation: fadeIn 1s linear forwards;
+    }
+
+    &.rtl {
+      .line_1 {
+        animation-delay: 0s;
+      }
+      
+      .line_2 {
+        animation-delay: 0.2s;
+      }
+      
+      .line_3 {
+        animation-delay: .4s;
+      }
+    
+      .line_4 {
+        animation-delay: .6s;
+      }
+      
+      .line_5 {
+        animation-delay: .8s;
+      }
+      
+      .line_6 {
+        animation-delay: 1s;
+      }
+      .line_7 {
+        animation-delay: 1.2s;
+      }
+      
+      .line_8 {
+        animation-delay: 1.4s;
+      }
+      
+      .line_9 {
+        animation-delay: 1.6s;
+      }
+    
+      .line_10 {
+        animation-delay: 1.8s;
+      }
+      
+      .line_11 {
+        animation-delay: 2s;
+      }
+      
+      .line_12 {
+        animation-delay: 2.2s;
+      }
+
+      .line_13 {
+        animation-delay: 2.4s;
+      }
+      
+      .line_14 {
+        animation-delay: 2.6s;
+      }
+      
+      .line_15 {
+        animation-delay: 2.8s;
+      }
+      
+      .line_16 {
+        animation-delay: 3s;
+      }
+
+      .line_17 {
+        animation-delay: 3.2s;
+      }
+    }
+
+    &.ltr {
+      .line_17 {
+        animation-delay: 0s;
+      }
+      
+      .line_16 {
+        animation-delay: 0.2s;
+      }
+      
+      .line_15 {
+        animation-delay: .4s;
+      }
+    
+      .line_14 {
+        animation-delay: .6s;
+      }
+      
+      .line_13 {
+        animation-delay: .8s;
+      }
+      
+      .line_12 {
+        animation-delay: 1s;
+      }
+      .line_11 {
+        animation-delay: 1.2s;
+      }
+      
+      .line_10 {
+        animation-delay: 1.4s;
+      }
+      
+      .line_9 {
+        animation-delay: 1.6s;
+      }
+    
+      .line_8 {
+        animation-delay: 1.8s;
+      }
+      
+      .line_7 {
+        animation-delay: 2s;
+      }
+      
+      .line_6 {
+        animation-delay: 2.2s;
+      }
+  
+      .line_5 {
+        animation-delay: 2.4s;
+      }
+      
+      .line_4 {
+        animation-delay: 2.6s;
+      }
+      
+      .line_3 {
+        animation-delay: 2.8s;
+      }
+      
+      .line_2 {
+        animation-delay: 3s;
+      }
+  
+      .line_1 {
+        animation-delay: 3.2s;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    stroke: #E9A45D;
+  }
+  30% {
+    stroke: #E40F95;
+  }
+  50% {
+    stroke: #6FCFEB;
+  }
+  80% {
+    stroke: #E40F95;
+  }
+  to {
+    stroke: #E9A45D;
+  }
+}

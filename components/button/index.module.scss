@@ -1,0 +1,20 @@
+.button {
+  font-weight: 700;
+  font-family: var(--accent-montserrat);
+  border-radius: var(--border-rad-1);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  padding: 18px 30px;
+  transition: all .3s linear;
+
+  &.pink {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+  }
+
+
+  &:hover:not(:active) {
+    background-color: var(--color-blue-200);
+    color: var(--color-white);
+  }
+}

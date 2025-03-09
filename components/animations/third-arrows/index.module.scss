@@ -1,0 +1,46 @@
+.element {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  path {
+    animation: fadeIn 1s linear infinite;
+  }
+
+  .arrow_1 {
+    animation-delay: 0s;
+  }
+  
+  .arrow_2 {
+    animation-delay: 0.2s;
+  }
+  
+  .arrow_3 {
+    animation-delay: .4s;
+  }
+
+  .arrow_4 {
+    animation-delay: .6s;
+  }
+  
+  .arrow_5 {
+    animation-delay: .8s;
+  }
+  
+  .arrow_6 {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    fill: #E40F95;
+  }
+  50% {
+    fill: #6FCFEB;
+  }
+  to {
+    fill: #E40F95;
+  }
+}

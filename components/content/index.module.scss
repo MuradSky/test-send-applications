@@ -1,0 +1,146 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 142px;
+  position: relative;
+
+  .dots_grid {
+    position: absolute;
+    bottom: 10%;
+    right: 23%;
+    z-index: -1;
+    width: 486px;
+    height: 224px;
+  }
+
+  .rounded_lines {
+    position: absolute;
+    top: -10.6%;
+    left: 0;
+    z-index: -1;
+  }
+
+  .cross {
+    position: absolute;
+    z-index: -1;
+    top: -7%;
+    right: 8.5%;
+  }
+
+  .cross_2 {
+    position: absolute;
+    z-index: -1;
+    bottom: 43%;
+    left: 26.5%;
+  }
+
+  .querter {
+    position: absolute;
+    z-index: -1;
+    bottom: 22%;
+    left: 0;
+  }
+
+  .waves {
+    position: absolute;
+    z-index: -1;
+    right: 5%;
+    bottom: 42%;
+
+    & > * {
+      width: 427px;
+    }
+  }
+
+  .text {
+    width: 100%;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 160%;
+  }
+
+  .lattice {
+    position: absolute;
+    width: 378px;
+    bottom: -20px;
+    right: 14%;
+  }
+
+  .first,
+  .second,
+  .last {
+    position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    .background_blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  .first {
+    margin-left: -25.4%;
+    padding: 40px 45px 74px 98px;
+
+    .text {
+      max-width: 889px;
+    }
+  }
+
+  .second {
+    margin-right: -19.6%;
+    margin-top: -2%;
+    padding: 85px 102px 40px 40px;
+    .text {
+      max-width: 999px;
+    }
+  }
+  
+  .last {
+    margin-top: 33px;
+    margin-left: -16.5%;
+    text-align: center;
+    background-image: url(/webp/content/tx-bg-3.webp);
+    padding: 40px 95px 99.4px 107.5px;
+    .inner {
+      width: 100%;
+      max-width: 832px;
+      margin: 0 auto;
+    }  
+
+    .title {
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 120%;
+      margin-bottom: 44px;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 40px;
+
+      button {
+        font-weight: 700;
+        font-size: 22px;
+
+        width: 100%;
+        max-width: 395px;
+      }
+    }
+  }
+
+  .arrows_left,
+  .arrows_right {
+    width: 178px;
+  }
+
+  .arrows_right {
+    transform: rotate(180deg);
+  }
+}

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-const csvFilePath = path.join(process.cwd(), "tmp", "applications.csv");
+const csvFilePath = path.join(process.cwd(), "upload", "applications.csv");
 
 const fileWork = (value: {
   surname: string,

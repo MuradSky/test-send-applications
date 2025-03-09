@@ -1,0 +1,99 @@
+.select {
+  position: relative;
+
+  &.is_filled,
+  &:hover {
+    .head {
+      border-color: #6FCFEB;
+    }
+  }
+
+  .head {
+    width: 100%;
+    font-weight: 500;
+    font-family: var(--accent-montserrat);
+    border-radius: 60px;
+    height: 56px;
+    background-color: #F4F4F4;
+    padding: 18px 24px;
+    color: #000;
+    cursor: pointer;
+    text-align: start;
+    border: 1px solid #F4F4F4;
+    transition: all .3s linear;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 12px;
+    
+    svg {
+      transition: all .3s linear;
+    }
+
+    &.open {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .options {
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #F4F4F4;
+    border-radius: 20px;
+    margin-top: 5px;
+    overflow: hidden;
+    padding-right: 15px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+
+  .list {
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: 4px;
+    overscroll-behavior: contain;
+    padding: 18px 8px 18px 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+
+    &::-webkit-scrollbar {
+      width: 2px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 120px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    li {
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+
+      &:hover {
+        color: #6FCFEB;
+      }
+      &.is_active {
+        color: var(--color-pink);
+      }
+    }
+  }
+}

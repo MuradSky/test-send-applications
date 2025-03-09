@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 0 7px;
+    }
+
+    li a {
+      border: 1px solid var(--color-white);
+      padding: 18px 30px;
+      font-weight: 700;
+      color: var(--color-white);
+      transition: all 0.3s linear;
+      border-radius: var(--border-rad-1);
+      &:hover {
+        border-color: var(--color-blue-200);
+        color: var(--color-blue-200);
+      }
+    }
+  }
+}

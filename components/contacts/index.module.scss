@@ -1,0 +1,65 @@
+.contacts {
+  position: relative;
+  background: rgba($color: #000, $alpha: 0.2);
+  padding: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 70px;
+
+  .lattice {
+    position: absolute;
+    left: -5px;
+    bottom: 0;
+    width: 475px;
+    height: 70px;
+
+    &:first-child {
+      transform: rotateX(-180deg);
+      bottom: auto;
+      top: 0;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    flex: auto;
+    max-width: 490px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+  }
+
+  .key {
+    font-size: 18px;
+    line-height: 130%;
+  }
+
+  .val {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 130%;
+  }
+
+  .map {
+    width: 100%;
+    max-width: 1240px;
+
+    min-height: 460px;
+    max-height: 460px;
+    overflow: hidden;
+    border-radius: var(--border-rad-2);
+  }
+}
