@@ -7,10 +7,10 @@ const schema = Joi.object({
   surname: Joi.string().min(1).required(),
   name: Joi.string().min(1).required(),
   patronymic: Joi.string().allow('').optional(),
-  birthDate: Joi.date().required(),
+  birthday: Joi.string().required(),
   email: Joi.string().email().required(),
   occupation: Joi.string().allow('').optional(),
-  conferenceDays: Joi.string().min(1).required(),
+  date: Joi.string().min(1).required(),
 });
 
 export async function POST(
@@ -45,10 +45,10 @@ export async function POST(
         Имя: ${value.name}
         Фамилия: ${value.surname}
         Отчество: ${value.patronymic}
-        Дата рождения: ${value.birthDate}
+        Дата рождения: ${value.birthday}
         Email: ${value.email}
         Профессия: ${value.occupation}
-        Дни конференции: ${value.conferenceDays}
+        Дни конференции: ${value.date}
       `,
       replyTo: value.email,
     };

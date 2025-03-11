@@ -1,12 +1,17 @@
 'use client';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Grid , Pagination } from "swiper/modules";
 
+import "swiper/css/grid";
 import 'swiper/css';
+import 'swiper/css/pagination';
+
 import s from './index.module.scss';
 import RoundedLines from '../animations/rounded-lines';
 import DoubleWaves from '../animations/double-waves';
 import CircleLines from '../animations/circle-lines';
+import { useScreenSize } from '@/hooks/useScreenSize';
 
 const data = [
   {
@@ -52,30 +57,47 @@ const data = [
 ];
 
 const JuryComposition = () => {
+  const { isTablet, isMobileMd } = useScreenSize();
   return (
-    <div className={s.bock}>
+    <div className={s.bock} id="juri">
       <h2 className={s.title}>
         Состав жюри
       </h2>
       <div className={s.slider}>
-        <RoundedLines customClass={s.roundedLines} />
-        <DoubleWaves customClass={s.waves} />
+        {!isTablet && <RoundedLines customClass={s.roundedLines} />}
+        {!isTablet && <DoubleWaves customClass={s.doubleWaves} />}
         <CircleLines customClass={s.circleLines} />
+
         <Swiper
-          slidesPerView="auto"
+          modules={[Grid, Pagination]}
+          grid={{ rows: 2 }}
+          pagination={{
+            clickable: true,
+          }}
+          breakpoints={{
+            1024: {
+              grid: {
+                rows: 1,
+              },
+            }
+          }}
+          slidesPerView={isMobileMd ? 2 : 'auto' }
           spaceBetween={10}
           loop={true}
+          className={s.swiper}
         >
           {data.map(item => (
-            <SwiperSlide className={s.card} key={item.id}>
-              <Image 
-                src={'/webp/juri/'+item.id+'.webp'}
-                alt=""
-                width={250}
-                height={311}
-              />
-              <div className={s.name}>{item.name}</div>
-              <div className={s.pos}>{item.pos}</div>
+            <SwiperSlide className={s.slide} key={item.id}>
+              <div className={s.card}>
+                <Image 
+                  src={'/webp/juri/'+item.id+'.webp'}
+                  alt=""
+                  width={250}
+                  height={311}
+                />
+                <div className={s.name}>{item.name}</div>
+                <div className={s.pos}>{item.pos}</div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

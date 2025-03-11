@@ -7,11 +7,13 @@ interface RadioGropProps {
   customClass?: string;
   onSelect: (v: number) => void;
   label: string;
+  name?: string;
   options: {
     label: string;
     value: number;
   }[];
   defaultValue?: number;
+  disabled?: boolean;
 }
 
 const RadioGroup = ({
@@ -20,6 +22,8 @@ const RadioGroup = ({
   defaultValue,
   options,
   onSelect,
+  disabled,
+  name = 'radio-group',
 }: RadioGropProps) => {
   const [value, setValue] = useState(defaultValue)
 
@@ -38,11 +42,11 @@ const RadioGroup = ({
       </div>
       <div className={s.flex}>
         {options.map(option => (
-          <label key={option.value} className={clsx(value === option.value && s.is_active)}>
+          <label key={option.value} className={clsx(value === option.value && s.is_active, disabled && s.disabled)}>
             <span>{option.label}</span>
             <input
               type="radio"
-              name="radio-group"
+              name={name}
               checked={value === option.value}
               onChange={handleSelect(option.value)}
             />

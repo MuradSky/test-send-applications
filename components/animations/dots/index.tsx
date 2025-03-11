@@ -13,12 +13,7 @@ const Dots = ({
 	const root = useRef<HTMLDivElement | null>(null);
 
 	const dots = Array.from(Array(112).keys())
-
-	console.log(
-		dots.length / 2,
-		dots[55]
-	)
-
+  
   return (
     <div 
 			ref={root}

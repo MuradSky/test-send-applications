@@ -12,6 +12,7 @@ interface SelectProps {
     value: number;
   }[],
   defaultValue?: number;
+  disabled?: boolean;
 }
 
 const Select = ({
@@ -19,7 +20,8 @@ const Select = ({
   customClass,
   placeholder,
   options,
-  defaultValue
+  defaultValue,
+  disabled,
 }: SelectProps) => {
   const headRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
@@ -52,8 +54,8 @@ const Select = ({
     setIsOpen(false);
   }
   
-  const title = value ? options.find(option => option.value === value)?.label : placeholder;
-
+  const title = (value !== null) ? options.find(option => option.value === value)?.label : placeholder;
+  
   return (
     <div 
       tabIndex={0}
@@ -68,7 +70,8 @@ const Select = ({
         className={
           clsx(
             s.head,
-            isOpen && s.open
+            isOpen && s.open,
+            disabled && s.disabled
           )
         }
         ref={headRef}

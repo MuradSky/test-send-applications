@@ -56,10 +56,20 @@ const Content = () => {
 
   }, {
     scope: rootRef
-  })
+  });
+
+  const onClick = (str: string) => () => {
+    const block = document.querySelector<HTMLDivElement>('#'+str);
+    const top = block?.offsetTop as number;
+
+    window.scrollTo({
+      top: top - 100,
+      behavior: 'smooth',
+    })
+  } 
 
   return (
-    <div className={s.block} ref={rootRef}>
+    <div className={s.block} ref={rootRef} id="content">
       <RoundedLines customClass={s.rounded_lines} />
       
       <div className={s.cross} data-selector="cross-1">
@@ -122,7 +132,7 @@ const Content = () => {
           </h2>
           <div className={s.bottom}>
             <SecondArrows customClass={s.arrows_left} />
-            <Button>
+            <Button onClick={onClick('register')} customClass={s.button}>
               Регистрация
             </Button>
             <SecondArrows customClass={s.arrows_right} />

@@ -1,9 +1,15 @@
+'use client';
+import dynamic from 'next/dynamic';
 import Lattice from '../animations/lattice';
 import s from './index.module.scss';
 
+const LazyComponent = dynamic(() => import('./Map'), {
+  ssr: false, // Optional: Disable server-side rendering for this component
+});
+
 const Contacts = () => {
   return (
-    <div className={s.contacts}>
+    <div className={s.contacts} id="contacts">
       <Lattice customClass={s.lattice} />
       <Lattice customClass={s.lattice} />
       <div className={s.content}>
@@ -23,7 +29,7 @@ const Contacts = () => {
         </div>
       </div>
 
-      <div className={s.map}></div>
+      <LazyComponent />
     </div>
   )
 }

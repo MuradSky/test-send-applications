@@ -75,7 +75,7 @@ const CircleLines = ({
       )}
       data-selector="parallax.item"
     >
-      <svg width="321" height="321" viewBox="0 0 321 321" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 321 321" fill="none" xmlns="http://www.w3.org/2000/svg">
         <mask id="mask0_91_2804" style={{ maskType:'luminance' }} maskUnits="userSpaceOnUse" x="0" y="0" width="321" height="321">
           <path d="M160.5 321C249.142 321 321 249.142 321 160.5C321 71.8583 249.142 0 160.5 0C71.8583 0 0 71.8583 0 160.5C0 249.142 71.8583 321 160.5 321Z" fill="white"/>
         </mask>

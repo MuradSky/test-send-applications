@@ -1,31 +1,35 @@
-# Используем Node.js 20.x
-FROM node:20.10.0-alpine AS builder
+# Используем официальный образ Node.js
+FROM node:20-alpine AS builder
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
-COPY package.json package-lock.json ./
+# Копируем package.json и package-lock.json (или pnpm/yarn.lock)
+COPY package.json package-lock.json* ./
 
 # Устанавливаем зависимости
-RUN npm ci
+RUN npm ci --omit=dev
 
-# Копируем весь код
+# Копируем весь код проекта
 COPY . .
 
-# Строим Next.js в продакшн-режиме
+# Собираем Next.js проект
 RUN npm run build
 
-# Минимальный образ для продакшна
-FROM node:20.10.0-alpine AS runner
+# Удаляем dev-зависимости
+RUN npm prune --omit=dev
 
+# Второй этап для чистого окружения
+FROM node:20-alpine AS runner
+
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем файлы сборки и зависимости
-COPY --from=builder /app/package.json ./
+# Копируем собранные файлы и зависимости из builder
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
 
-# Запускаем Next.js в продакшн-режиме
+# Запуск Next.js в продакшн-режиме
 CMD ["npm", "run", "start"]

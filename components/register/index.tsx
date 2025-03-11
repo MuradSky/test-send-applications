@@ -5,11 +5,14 @@ import Shark from '../animations/shark';
 import ThirdArrows from '../animations/third-arrows';
 import RegisterForm from '../register-form';
 import s from './index.module.scss';
+import DotsGrid from '../animations/dots-grid';
 
 const Register = () => {
   return (
-    <div className={s.block}>
+    <div className={s.block} id="register">
       <Shark customClass={s.shark} />
+
+      <DotsGrid customClass={s.dots_grid} />
 
       <div className={s.circle}>
         <Image

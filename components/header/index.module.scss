@@ -3,6 +3,14 @@
 .header {
   position: relative;
   padding: 40px 60px;
+
+  @media (max-width: 1024px) {
+    padding: 20px 40px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 15px;
+  }
   
   .circle {
     position: absolute;
@@ -10,6 +18,26 @@
     left: 17%;
     z-index: -1;
     animation: rotateCircle 5s linear infinite;
+    @media (max-width: 1440px) {
+      top: -100%;
+      left: 16%;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    img {
+      @media (max-width: 1440px) {
+        width: 327px;
+        height: 327px;
+      }
+
+      @media (max-width: 1024px) {
+        width: 188px;
+        height: 188px;
+      }
+    }
   }
 }
 

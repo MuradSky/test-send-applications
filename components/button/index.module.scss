@@ -12,9 +12,14 @@
     color: var(--color-white);
   }
 
-
   &:hover:not(:active) {
     background-color: var(--color-blue-200);
     color: var(--color-white);
+  }
+
+  &:disabled {
+    cursor: no-drop;
+    pointer-events: none;
+    opacity: .5 !important;
   }
 }

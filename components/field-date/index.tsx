@@ -1,10 +1,11 @@
 'use client';
-import { ChangeEvent, InputHTMLAttributes, useState } from 'react';
+import { ChangeEvent, InputHTMLAttributes, useEffect, useState } from 'react';
 import s from './index.module.scss';
 import clsx from 'clsx';
 
 interface FieldProps extends InputHTMLAttributes<Omit<HTMLInputElement, 'className'>> {
   customClass?: string;
+  onErrorField: (v: boolean) => void;
 }
 
 const months: { [key: number]: number } = {
@@ -26,10 +27,19 @@ const Filed = ({
   customClass,
   value,
   onChange,
+  onErrorField,
   ...props
 }: FieldProps) => {
   const [date, setDate] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (error) {
+      onErrorField(true)
+    } else {
+      onErrorField(false)
+    }
+  }, [error, onErrorField]); 
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 
@@ -55,6 +65,7 @@ const Filed = ({
 
     setDate(value);
     setError(''); // Сбрасываем ошибку при каждом изменении
+    onErrorField(false)
   };
 
   const handleBlur = () => {
@@ -63,17 +74,33 @@ const Filed = ({
 
       if (day < 1 || day > months[month-1] || month < 1 || month > 12 || year > 2025) {
         setError('Некорректная дата');
+        onErrorField(true)
       }
     } else if (date.length > 0) {
-        setError('Неполная дата');
+      setError('Неполная дата');
+      onErrorField(true)
     }
   };
 
   
   return (
-    <label className={clsx(s.field, value && s.is_filled, customClass)}>
+    <label 
+      className={clsx(
+        s.field,
+        value && s.is_filled,
+        customClass
+      )}
+    >
       <span className={s.label}>
-        <span className={clsx(s.mask, date.length > 0 && s.is_show)}>
+        <input
+          type='text'
+          value={date}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          {...props}
+        />
+
+        <span className={clsx(s.mask)}>
           <i className={clsx(date.length > 0 && s.hidden)}>_</i>
           <i className={clsx(date.length > 1 && s.hidden)}>_</i>
           <i className={clsx(date.length > 2 && s.hidden)}>.</i>
@@ -85,13 +112,6 @@ const Filed = ({
           <i className={clsx(date.length > 8 && s.hidden)}>_</i>
           <i className={clsx(date.length > 9 && s.hidden)}>_</i>
         </span>
-        <input
-          type='text'
-          value={date}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          {...props}
-        />
       </span>
       {error &&
         <span className={s.error}>{error}</span>

@@ -8,7 +8,18 @@
 }
 
 .element {
-  
+  width: 321px;
+  height: 321px;
+
+  @media (max-width: 1440px) {
+    width: 234px;
+    height: 234px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 129px;
+    height: 129px;   
+  }
 
   &.is_anim {
     &.is_pink {

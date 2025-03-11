@@ -1,6 +1,6 @@
 .field {
   display: block;
-
+  position: relative;
   &.is_filled {
     input {
       border-color: #6FCFEB;
@@ -54,13 +54,25 @@
     background-color: transparent;
     border: 1px solid #F4F4F4;
     transition: all 0.2s ease-in-out;
+    
 
-    &:hover {
-      border-color: #6FCFEB;
+    &:disabled {
+      opacity: 0.5 !important;
+      cursor: not-allowed !important;
+      pointer-events: none !important;
     }
-
+    
+    &:hover,
     &:focus {
       border-color: #6FCFEB;
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      & ~ .mask {
+        opacity: 1;
+      }
     }
 
     &::placeholder {
@@ -73,5 +85,13 @@
     display: block;
     text-align: left;
     color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+
+    @media (max-width: 768px) {
+      position: static !important;
+    }
   }
 }

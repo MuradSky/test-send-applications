@@ -24,7 +24,7 @@ body {
   color: var(--color-white);
   font-family: var(--font-montserrat), sans-serif;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 1;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -78,4 +78,48 @@ img {
 
 main {
   flex: auto;
+}
+
+.swiper {
+  @media (max-width: 600px) {
+    padding-bottom: 45px !important;
+  }
+
+  .swiper-wrapper {
+    @media (max-width: 1024px) {
+      flex-direction: row !important;
+      gap: 10px !important;
+    }
+  }
+
+  .swiper-pagination {
+    bottom: 5px !important;
+
+    @media (min-width: 601px) {
+      display: none !important;
+    }
+
+    .swiper-pagination-bullet {
+      width: 10px !important;
+      height: 10px !important;
+      margin: 0 8px !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: var(--color-pink) !important;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid var(--color-pink);
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
 }

@@ -31,12 +31,19 @@
       background-color: #272E5F;
       color: #fff
     }
+
+    &.disabled {
+      pointer-events: none !important;
+      opacity: 0.5 !important;
+      cursor: not-allowed !important
+    }
   }
 
   label input {
     position: absolute;
     z-index: -1;
-    top: 0;
-    left: 0;
+    top: 0 !important;
+    left: 0 !important;
+    opacity: 0 !important;
   }
 }

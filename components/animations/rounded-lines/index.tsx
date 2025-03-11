@@ -59,7 +59,7 @@ const RoundedLines = ({
         customClass
       )}
     >
-      <svg width="576" height="440" viewBox="0 0 576 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 576 440" fill="none" xmlns="http://www.w3.org/2000/svg">
         {paths.map((item, i) => (
           <path
             key={i}

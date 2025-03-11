@@ -6,7 +6,7 @@ import s from './index.module.scss';
 const Footer = () => {
   return (
     <footer className={s.footer}>
-      <Navigation />
+      <Navigation isFooter />
       <div className={s.center}>
         <Banks />
       </div>

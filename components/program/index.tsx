@@ -82,7 +82,7 @@ const Program = () => {
   });
 
   return (
-    <div className={s.block} ref={rootRef}>
+    <div className={s.block} ref={rootRef} id="program">
       <Shark customClass={clsx(s.shark, 'layer1')} />
     
       <div className={s.circle}>
