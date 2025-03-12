@@ -2,7 +2,7 @@
 import { ChangeEvent, InputHTMLAttributes, useEffect, useState } from 'react';
 import s from './index.module.scss';
 import clsx from 'clsx';
-import MaskedInput from 'react-text-mask';
+import { InputMask } from '@react-input/mask';
 
 interface FieldProps extends InputHTMLAttributes<Omit<HTMLInputElement, 'className'>> {
   customClass?: string;
@@ -83,8 +83,6 @@ const Filed = ({
     }
   };
 
-  const dateMask = [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/];
-
   return (
     <label 
       className={clsx(
@@ -95,8 +93,11 @@ const Filed = ({
     >
      
       <span className={s.label}>
-        <MaskedInput
-          mask={dateMask}
+        <InputMask
+          mask="dd.mm.yyyy"
+          replacement={{ d: /\d/, m: /\d/, y: /\d/ }}
+          showMask
+          separate
           value={date}
           onChange={handleChange}
           onBlur={handleBlur}

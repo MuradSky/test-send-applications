@@ -127,7 +127,12 @@
     }
 
     @media (max-width: 600px) {
-      display: none;
+      right: 0;
+      top: -7%;
+      img {
+        width: 95px;
+        height: 95px;
+      }
     }
   }
 
