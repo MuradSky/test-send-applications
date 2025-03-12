@@ -2,6 +2,7 @@
 import { ChangeEvent, InputHTMLAttributes, useEffect, useState } from 'react';
 import s from './index.module.scss';
 import clsx from 'clsx';
+import MaskedInput from 'react-text-mask';
 
 interface FieldProps extends InputHTMLAttributes<Omit<HTMLInputElement, 'className'>> {
   customClass?: string;
@@ -82,7 +83,8 @@ const Filed = ({
     }
   };
 
-  
+  const dateMask = [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/];
+
   return (
     <label 
       className={clsx(
@@ -91,27 +93,15 @@ const Filed = ({
         customClass
       )}
     >
+     
       <span className={s.label}>
-        <input
-          type='text'
+        <MaskedInput
+          mask={dateMask}
           value={date}
           onChange={handleChange}
           onBlur={handleBlur}
-          {...props}
+          {...props}  
         />
-
-        <span className={clsx(s.mask)}>
-          <i className={clsx(date.length > 0 && s.hidden)}>_</i>
-          <i className={clsx(date.length > 1 && s.hidden)}>_</i>
-          <i className={clsx(date.length > 2 && s.hidden)}>.</i>
-          <i className={clsx(date.length > 3 && s.hidden)}>_</i>
-          <i className={clsx(date.length > 4 && s.hidden)}>_</i>
-          <i className={clsx(date.length > 5 && s.hidden)}>.</i>
-          <i className={clsx(date.length > 6 && s.hidden)}>_</i>
-          <i className={clsx(date.length > 7 && s.hidden)}>_</i>
-          <i className={clsx(date.length > 8 && s.hidden)}>_</i>
-          <i className={clsx(date.length > 9 && s.hidden)}>_</i>
-        </span>
       </span>
       {error &&
         <span className={s.error}>{error}</span>

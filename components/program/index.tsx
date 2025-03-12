@@ -67,7 +67,18 @@ const Program = () => {
   useGSAP(() => {
     if (!rootRef.current) return;
     const cross = rootRef.current.querySelector('[data-selector="cross-1"]');
+    const circle = rootRef.current.querySelector('[data-selector="circle"]');
     
+    gsap.to(circle, {
+      rotate: 360,
+      duration: 2,
+      x: 100,
+      ease: "back.inOut(3)",
+      repeat: -1,
+      repeatDelay: 2,
+      yoyo: true
+    });
+
     gsap.to(cross, {
       y: 100,
       duration: 2,
@@ -85,7 +96,7 @@ const Program = () => {
     <div className={s.block} ref={rootRef} id="program">
       <Shark customClass={clsx(s.shark, 'layer1')} />
     
-      <div className={s.circle}>
+      <div className={s.circle} data-selector="circle">
         <Image
           src="/webp/animate/circle-1.webp"
           alt=""

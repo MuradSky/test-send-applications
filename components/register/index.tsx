@@ -9,7 +9,7 @@ import DotsGrid from '../animations/dots-grid';
 
 const Register = () => {
   return (
-    <div className={s.block} id="register">
+    <div className={s.block}>
       <Shark customClass={s.shark} />
 
       <DotsGrid customClass={s.dots_grid} />
@@ -36,7 +36,7 @@ const Register = () => {
         />
       </div>
 
-      <div className={s.container}>
+      <div className={s.container} id="register">
         <div className={s.box}>
           <div className={s.head}>
             <ThirdArrows customClass={s.arrows_left} />
@@ -48,7 +48,7 @@ const Register = () => {
           </div>
           <RegisterForm />
           <div className={s.info}>
-            Нажимая кнопку “Зарегистрироваться” вы соглашаетесь с условиями обработки персональных данных.
+            Нажимая кнопку “Зарегистрироваться” вы соглашаетесь с условиями обработки <a href="/Junior Pay Tech Forum_Согласие ПД.pdf" target="_blank" rel="noreferrer noopener">персональных данных.</a>
           </div>
         </div>
       </div>

@@ -39,7 +39,7 @@ const Map = () => {
     <div className={s.map}>
       {markerElement}
       <YMap 
-        location={{center: [37.681151, 55.766521], zoom: isMobile ? 17 : 18}}
+        location={{center: [37.681151, 55.766721], zoom: isMobile ? 17 : 17}}
       >
         <YMapDefaultSchemeLayer
           theme="dark"

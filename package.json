@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@types/react-text-mask": "^5.4.14",
     "@yandex/ymaps3-default-ui-theme": "^0.0.19",
     "clsx": "^2.1.1",
     "fs": "^0.0.1-security",
@@ -21,6 +22,8 @@
     "path": "^0.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-input-mask": "^2.0.4",
+    "react-text-mask": "^5.5.0",
     "swiper": "^11.2.5"
   },
   "devDependencies": {
@@ -30,6 +33,7 @@
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-input-mask": "^3.0.6",
     "@yandex/ymaps3-types": "^1.0.16029232",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",

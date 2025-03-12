@@ -123,7 +123,7 @@
       display: block;
       position: relative;
       z-index: 2;
-      padding: 18px 30px;
+      padding: 18px 24px;
       border-radius: inherit;
       background-color: var(--color-blue-100);
 
@@ -133,6 +133,7 @@
 
       display: flex;
       align-items: center;
+      justify-content: center;
 
       @media (max-width: 1024px) {
         font-size: 24px;
