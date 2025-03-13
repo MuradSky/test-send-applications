@@ -13,11 +13,11 @@ const schema = Joi.object({
   date: Joi.string().min(1).required(),
 });
 
-console.log(process.env.MAIL_HOST);
+console.log(process.env);
 
 const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST,
-  port: Number(process.env.MAIL_PORT),
+  host: process.env.MAIL_HOST || 'localhost',
+  port: Number(process.env.MAIL_PORT) || 1025,
   secure: false,
   auth: {
     user: process.env.MAIL_USERNAME,
@@ -50,7 +50,7 @@ export async function POST(
     try {
       const mailOptions = {
         from: process.env.MAIL_USERNAME,
-        to: value.email,
+        to: process.env.MAIL_USERNAME,
         subject: 'Заявка на регистрацию в Junior PayTech Forum',
         text: `
           Имя: ${value.name}
