@@ -2,8 +2,31 @@ services:
   nextjs:
     container_name: nextjs_app
     build: .
+    volumes:
+      - ./upload:/app/upload
     ports:
       - "4000:3000"
     environment:
       NODE_ENV: production
+      MAIL_DRIVER: smtp
+      MAIL_HOST: maildev
+      MAIL_PORT: 25
+      MAIL_USERNAME: juniorpaytech@nspk.ru
+      MAIL_PASSWORD: 
+    depends_on:
+      - maildev
     restart: unless-stopped
+    networks:
+      - paytech
+  maildev:
+    image: maildev/maildev
+    platform: linux/amd64 # Указываем платформу
+    restart: always
+    ports:
+      - "1080:1080" # Веб-интерфейс
+      - "1025:25" # SMTP сервер
+    networks:
+      - paytech
+networks:
+  paytech: 
+    driver: bridge

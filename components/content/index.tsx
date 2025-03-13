@@ -8,9 +8,8 @@ import Lattice from '../animations/lattice';
 import Button from '../button';
 import SecondArrows from '../animations/second-arrows';
 import RoundedLines from '../animations/rounded-lines';
-import { BackgroundBlur, BackgroundBlur2 } from './BackgroundBlur';
 
-import s from './index.module.scss';
+import s from './content.module.scss';
 import DoubleWaves from '../animations/double-waves';
 import DotsGrid from '../animations/dots-grid';
 import clsx from 'clsx';
@@ -108,17 +107,14 @@ const Content = () => {
       </div>
 
       <div className={s.first}>
-        <BackgroundBlur />
         <p className={s.text}>
           В 2025 году конференция Junior PayTech Forum при поддержке Банка России пройдет уже в 5-й раз. 
           Конференция – финальная часть проектной деятельности студентов в рамках творческого трека совместной 
           программы «Финансовые технологии и сервисы платежной системы» Финтех Хаба Банка России и Национальной системы платежных карт (НСПК).
         </p>
-
-        <Lattice customClass={s.lattice} isSecond />
       </div>
+      <Lattice customClass={s.lattice} isSecond />
       <div className={s.second}>
-        <BackgroundBlur2 />
         <p className={s.text}>
           Более 6 месяцев участники программы работали над концепциями финансовых сервисов, которые призваны улучшить и упростить жизнь граждан. 
           До финала конференции Junior PayTech Forum дошли сильнейшие ребята из разных городов России. Они презентуют свои проекты 

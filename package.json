@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@react-input/mask": "^2.0.4",
     "@yandex/ymaps3-default-ui-theme": "^0.0.19",
+    "@yandex/ymaps3-hint": "^0.0.9",
     "clsx": "^2.1.1",
     "fs": "^0.0.1-security",
     "gsap": "^3.12.7",

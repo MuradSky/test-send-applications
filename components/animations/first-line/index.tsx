@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import s from './index.module.scss';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useScreenSize } from '@/hooks/useScreenSize';
 
 interface FirstLineProps {
   customClass?: string;
@@ -14,11 +15,12 @@ const FirstLine = ({
   isDisabledAnim
 }: FirstLineProps) => {
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const { isMobileMd } = useScreenSize();
 
   useGSAP(() => {
     if (rootRef.current && !isDisabledAnim) {
       gsap.to(rootRef.current, {
-        y: 20,
+        y: isMobileMd ? 8 : 20,
         delay: .5,
         duration: 1,
         repeat: -1,
@@ -28,7 +30,10 @@ const FirstLine = ({
       });
     }
   }, {
-    scope: rootRef
+    scope: rootRef,
+    dependencies: [
+      isMobileMd
+    ],
   });
 
   return (

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import s from './index.module.scss';
+import s from './content.module.scss';
 
 function BackgroundBlur() {
   return (

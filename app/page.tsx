@@ -1,6 +1,7 @@
 'use client';
 import Contacts from "@/components/contacts";
 import Content from "@/components/content";
+import Gallery from "@/components/gallery";
 import Hero from "@/components/hero";
 import JuryComposition from "@/components/jury-composition";
 import Program from "@/components/program";
@@ -45,6 +46,7 @@ export default function Home() {
       <Program />
       <Contacts />
       <Register />
+      <Gallery />
       <JuryComposition />
     </>
   );
