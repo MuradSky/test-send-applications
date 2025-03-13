@@ -13,7 +13,7 @@ const Footer = () => {
       <div className={s.bottom}>
         <Lattice customClass={s.lat_left} />
         <div className={s.center}>
-          <a href="http://" target="_blank" rel="noreferrer">
+          <a href="/Junior Pay Tech Forum_Согласие ПД.pdf" target="_blank" rel="noreferrer">
             Правовая информация
           </a>
           <span>© 2025 Junior PayTech Forum</span>
