@@ -23,7 +23,7 @@ const links = [
   {
     id: 4,
     text: 'Фото',
-    href: 'photo'
+    href: 'gallery'
   },
   {
     id: 5,
