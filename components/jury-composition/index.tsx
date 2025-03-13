@@ -83,7 +83,6 @@ const JuryComposition = () => {
           }}
           slidesPerView={isMobileMd ? 2 : 'auto' }
           spaceBetween={10}
-          loop={true}
           className={s.swiper}
         >
           {data.map(item => (

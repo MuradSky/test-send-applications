@@ -6,7 +6,6 @@
   @media (max-width: 600px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
   }
 
   .item {
@@ -19,9 +18,8 @@
     align-items: center;
     justify-content: center;
   
-    @media (max-width: 1024px) {
+    @media (max-width: 1600px) {
       min-height: 110px;
-
       img {
         width: 60%;
       }

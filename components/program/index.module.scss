@@ -9,7 +9,7 @@
   position: relative;
   padding-bottom: 120px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
     padding: 0 40px 100px;
   }
   
@@ -30,16 +30,9 @@
     width: 486px;
     height: 224px;
 
-    @media (max-width: 1440px) {
-      width: 350px;
-      height: auto;
-      bottom: 55.5%;
-      left: -16%;
-    }
-
-    @media (max-width: 1024px) {
+    @media (max-width: 1600px) {
       width: 304px;
-      left: -27%;
+      left: -10%;
       bottom: 57%;
     }
 
@@ -55,7 +48,7 @@
     display: flex;
     flex-direction: column;
     gap: 45px 0;
-    @media (max-width: 1024px) {
+    @media (max-width: 1600px) {
       gap: 55px 0;
     }
 
@@ -74,17 +67,17 @@
     bottom: 6%;
     z-index: -1;
 
-    @media (max-width: 1440px) {
-      left: -6%;
-      img {
-        width: 231px;
-        height: 231px;
-      }
-    }
+    // @media (max-width: 1440px) {
+    //   left: -6%;
+    //   img {
+    //     width: 231px;
+    //     height: 231px;
+    //   }
+    // }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1600px) {
       bottom: 12%;
-      left: -8%;
+      left: -2%;
       img {
         width: 120px;
         height: 116px;
@@ -107,18 +100,18 @@
     right: -4%;
     z-index: -2;
 
-    @media (max-width: 1440px) {
-      bottom: 20%;
-      right: -8%;
-      img {
-        width: 247px;
-        height: 247px;
-      }
-    }
+    // @media (max-width: 1440px) {
+    //   bottom: 20%;
+    //   right: -8%;
+    //   img {
+    //     width: 247px;
+    //     height: 247px;
+    //   }
+    // }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1600px) {
       bottom: 42%;
-      right: -9%;
+      right: -2%;
 
       img {
         width: 111px;
@@ -142,16 +135,10 @@
     right: 5.5%;
     width: 222px;
 
-    @media (max-width: 1440px) {
-      width: 159px;
-      top: 21.5%;
-      right: -2%;
-    }
-
-    @media (max-width: 1024px) {
+    @media (max-width: 1600px) {
       width: 107px;
       top: 20px;
-      right: -5%;
+      right: 0%;
     }
 
     @media (max-width: 768px) {
@@ -165,7 +152,7 @@
     font-size: 50px;
     line-height: 1.2;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1600px) {
       font-size: 40px;
     }
 
@@ -273,7 +260,7 @@
         background-color: var(--color-blue-100);
         border-radius: 500px;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1600px) {
           height: 64px;
         }
 
@@ -353,7 +340,7 @@
         text-align: left;
         line-height: 1.4;
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1600px) {
           font-size: 20px;
         }
 
