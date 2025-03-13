@@ -298,6 +298,8 @@
         border-radius: 60px;
         padding: 1px;
         margin: -1px;
+        white-space: nowrap;
+        min-width: 136px;
 
         @media (max-width: 768px) {
           white-space: nowrap;
