@@ -14,7 +14,7 @@
   // }
 
   @media (max-width: 1600px) {
-    padding: 74px 40px 115px;
+    padding: 74px 40px 85px;
   }
 
   @media (max-width: 768px) {
@@ -63,6 +63,11 @@
     left: -2%;
     z-index: -1;
 
+    @media (max-width: 1440px) {
+      top: 0%;
+      left: -6%;
+    }
+  
     @media (max-width: 1440px) {
       top: 11%;
       left: -5%;
@@ -136,8 +141,8 @@
       justify-content: center;
 
       @media (max-width: 1600px) {
-        font-size: 24px;
-        height: 65px;
+        font-size: 22px;
+        height: 60px;
       }
 
       @media (max-width: 768px) {

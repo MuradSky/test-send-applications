@@ -88,7 +88,11 @@
     }
 
     @media (max-width: 1600px) {
-      right: -10%;
+      right: 10%;
+    }
+
+    @media (max-width: 1440px) {
+      right: 5%;
     }
 
     @media (max-width: 768px) {

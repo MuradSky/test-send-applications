@@ -18,8 +18,9 @@
     left: 17%;
     z-index: -1;
     animation: rotateCircle 5s linear infinite;
+    
     @media (max-width: 1440px) {
-      top: -100%;
+      top: -120%;
       left: 16%;
     }
 
@@ -34,8 +35,9 @@
       }
 
       @media (max-width: 1600px) {
-        width: 188px;
-        height: 188px;
+        top: -150%;
+        width: 327px;
+        height: 327px;
       }
     }
   }
