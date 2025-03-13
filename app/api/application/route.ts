@@ -13,6 +13,21 @@ const schema = Joi.object({
   date: Joi.string().min(1).required(),
 });
 
+console.log(process.env.MAIL_HOST);
+
+const transporter = nodemailer.createTransport({
+  host: process.env.MAIL_HOST,
+  port: Number(process.env.MAIL_PORT),
+  secure: false,
+  auth: {
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSWORD || '',
+  },
+  tls: {
+    rejectUnauthorized: false,
+  },
+});
+
 export async function POST(
   request: NextRequest,
 ) {
@@ -30,21 +45,9 @@ export async function POST(
     fileWork(value)
 
     const responseBody = { message: 'Данные успешно валидированы' };
+    const message = {};
 
     try {
-      const transporter = nodemailer.createTransport({
-        host: process.env.MAIL_HOST,
-        port: Number(process.env.MAIL_PORT),
-        secure: false,
-        auth: {
-          user: process.env.MAIL_PORT,
-          // pass: process.env.MAIL_USERNAME,
-        },
-        tls: {
-          rejectUnauthorized: false,
-        },
-      });
-
       const mailOptions = {
         from: process.env.MAIL_USERNAME,
         to: value.email,
@@ -63,12 +66,13 @@ export async function POST(
 
       // Если все поля валидны
       const info = await transporter.sendMail(mailOptions);
+      Object.assign(message, { info });;
       console.log('Сообщение отправлено: %s', info.messageId);
     } catch(error) {
       console.error('Ошибка отправки письма:', error);
     }
 
-    return new NextResponse(JSON.stringify(responseBody), { status: 200 });
+    return new NextResponse(JSON.stringify({responseBody, message}), { status: 200 });
   } catch(error) {
     console.log(error)
     return new NextResponse(
