@@ -46,7 +46,7 @@ export default function Home() {
       <Program />
       <Contacts />
       <Register />
-      <Gallery />
+      {/* <Gallery /> */}
       <JuryComposition />
     </>
   );
