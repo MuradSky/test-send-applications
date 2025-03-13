@@ -349,6 +349,8 @@
       .title {
         font-weight: 700;
         font-size: 24px;
+        text-align: left;
+        line-height: 1.4;
 
         @media (max-width: 1024px) {
           font-size: 20px;
@@ -356,10 +358,9 @@
 
         @media (max-width: 768px) {
           max-width: 500px;
-          text-align: left;
         }
         @media (max-width: 600px) {
-          line-height: 1;
+          
         }
       }
     }

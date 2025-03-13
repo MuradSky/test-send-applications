@@ -20,11 +20,11 @@ const links = [
     text: 'Жюри',
     href: 'juri'
   },
-  {
-    id: 4,
-    text: 'Фото',
-    href: 'photo'
-  },
+  // {
+  //   id: 4,
+  //   text: 'Фото',
+  //   href: 'photo'
+  // },
   {
     id: 5,
     text: 'Контакты',
