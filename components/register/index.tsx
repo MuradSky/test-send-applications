@@ -48,7 +48,7 @@ const Register = () => {
           </div>
           <RegisterForm />
           <div className={s.info}>
-            Нажимая кнопку “Зарегистрироваться” вы соглашаетесь с условиями обработки <a href="/Junior Pay Tech Forum_Согласие ПД.pdf" target="_blank" rel="noreferrer noopener">персональных данных.</a>
+            Нажимая кнопку “Зарегистрироваться” вы соглашаетесь <a href="/Junior Pay Tech Forum_Согласие ПД.pdf" target="_blank" rel="noreferrer noopener">с&nbsp;условиями обработки персональных данных.</a>
           </div>
         </div>
       </div>

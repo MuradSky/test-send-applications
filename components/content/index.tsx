@@ -57,15 +57,36 @@ const Content = () => {
     scope: rootRef
   });
 
+  const smoothScroll = (target: HTMLElement, duration: number) => {
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY -50;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    let startTime: number | null = null;
+  
+    function animation(currentTime: number) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = ease(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+  
+    function ease(t: number, b: number, c: number, d: number) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
+  
+    requestAnimationFrame(animation);
+  };
+  
   const onClick = (str: string) => () => {
-    const block = document.querySelector<HTMLDivElement>('#'+str);
-    const top = block?.offsetTop as number;
-
-    window.scrollTo({
-      top: top - 100,
-      behavior: 'smooth',
-    })
-  } 
+    const block = document.querySelector<HTMLDivElement>('#' + str);
+    if (block) {
+      smoothScroll(block, 1500);
+    }
+  };
 
   return (
     <div className={s.block} ref={rootRef} id="content">
