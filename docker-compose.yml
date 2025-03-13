@@ -10,7 +10,7 @@ services:
       NODE_ENV: production
       MAIL_DRIVER: smtp
       MAIL_HOST: maildev
-      MAIL_PORT: 25
+      git: 1025
       MAIL_USERNAME: juniorpaytech@nspk.ru
       MAIL_PASSWORD: 
     depends_on:
