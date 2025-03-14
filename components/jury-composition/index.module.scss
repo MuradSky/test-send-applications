@@ -3,27 +3,27 @@
   position: relative;
 
   @media (max-width: 1600px) {
-    padding: 55px 40px 60px;
+    padding: 55px 40px 50px;
   }
 
   @media (max-width: 768px) {
-    padding: 74px 40px 60px;
+    padding: 74px 40px 45px;
   }
   @media (max-width: 600px) {
-    padding: 74px 15px 60px;
+    padding: 74px 15px 40px;
   }
 
   .doubleWaves {
     position: absolute;
     right: 0;
-    bottom: -30%;
+    bottom: -27%;
     z-index: -1;
     width: 427px;
 
     @media (max-width: 1600px) {
       width: 280px;
       right: -6%;
-      bottom: -25%;
+      bottom: -20%;
     }
 
     @media (max-width: 1024px) {
@@ -148,6 +148,9 @@
       margin-top: 20px;
       font-weight: 700;
       font-size: 22px;
+      line-height: 1.2;
+      white-space: pre-line;
+
       @media (max-width: 1600px) {
         font-size: 20px;
       }
