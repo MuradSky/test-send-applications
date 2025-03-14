@@ -70,7 +70,9 @@ const ResultModal: React.FC<ResultModalProps> = ({
               width={64}
               height={64}
             />
-            Ваша завайка принята!
+            Спасибо!<br />
+            Ваша заявка принята!<br />
+            Ожидайте ответа после рассмотрения
           </div> :
           <div className={styles.error_res}>
             <Image
@@ -79,8 +81,9 @@ const ResultModal: React.FC<ResultModalProps> = ({
               width={50}
               height={50}
             />
-            
-            Что-то пошло не так...
+            Поизошла ошибка!<br />
+            К сожалению что-то пошло не так...<br />
+            Попробуйте отправить заявку позже.
           </div>
         }
       </div>

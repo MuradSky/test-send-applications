@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Grid , Pagination } from "swiper/modules";
+import { Grid, Pagination, Autoplay } from 'swiper/modules';
 
 import "swiper/css/grid";
 import 'swiper/css';
@@ -69,7 +69,12 @@ const JuryComposition = () => {
         <CircleLines customClass={s.circleLines} />
 
         <Swiper
-          modules={[Grid, Pagination]}
+          modules={[Grid, Pagination, Autoplay]}
+          autoplay={{
+            delay: 3000, // Интервал в миллисекундах (3 секунды)
+            disableOnInteraction: false, // Продолжает автопрокрутку после взаимодействия
+          }}
+          loop={true} // Зацикливание
           grid={{ rows: 1 }}
           pagination={{
             clickable: true,

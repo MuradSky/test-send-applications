@@ -49,8 +49,8 @@ export async function POST(
 
     try {
       const mailOptions = {
-        from: process.env.MAIL_USERNAME,
-        to: process.env.MAIL_USERNAME,
+        from: process.env.MAIL_FROM,
+        to: process.env.MAIL_TO,
         subject: 'Заявка на регистрацию в Junior PayTech Forum',
         text: `
           Имя: ${value.name}

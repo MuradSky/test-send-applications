@@ -2,10 +2,8 @@ services:
   nextjs:
     container_name: nextjs_app
     build: .
-    volumes:
-      - ./upload:/app/upload
     ports:
       - "4000:3000"
     env_file:
-      - .env.prod
+      - ./.env.prod
     restart: unless-stopped

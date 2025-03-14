@@ -25,6 +25,12 @@ FROM node:20-alpine AS runner
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
+# Создание директории upload в образе
+RUN mkdir -p /app/upload
+
+# Копируем содержимое папки upload
+COPY ./upload /app/upload
+
 # Копируем собранные файлы и зависимости из builder
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
