@@ -17,8 +17,9 @@ const Contacts = () => {
         <div className={s.item}>
           <div className={s.key}>Адрес</div>
           <div className={s.val}>
-            МГТУ имени Н.Э. Баумана,
-            Башня В4К (Бауманская ул., 57)
+            Москва, Конгресс-холл, 
+            МГТУ имени Н.Э. Баумана, Башня В4К 
+            (Бауманская ул., 57)
           </div>
         </div>
         <div className={s.item}>

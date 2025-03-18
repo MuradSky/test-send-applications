@@ -71,8 +71,7 @@ const ResultModal: React.FC<ResultModalProps> = ({
               height={64}
             />
             Спасибо!<br />
-            Ваша заявка принята!<br />
-            Ожидайте ответа после рассмотрения
+            Ваша заявка принята!
           </div> :
           <div className={styles.error_res}>
             <Image
@@ -82,7 +81,6 @@ const ResultModal: React.FC<ResultModalProps> = ({
               height={50}
             />
             Поизошла ошибка!<br />
-            К сожалению что-то пошло не так...<br />
             Попробуйте отправить заявку позже.
           </div>
         }
