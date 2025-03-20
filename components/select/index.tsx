@@ -7,6 +7,7 @@ interface SelectProps {
   onSelect: (v: number) => void;
   customClass?: string;
   placeholder?: string;
+  value?: string;
   options: {
     label: string;
     value: number;
@@ -22,12 +23,19 @@ const Select = ({
   options,
   defaultValue,
   disabled,
+  value: _value,
 }: SelectProps) => {
   const headRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
-  const [value, setValue] = useState<number | null>(defaultValue || null);
+  const [value, setValue] = useState<number>(defaultValue || 0);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    setValue(
+      +Number(options.find(option => option.label === _value)?.value)
+    );
+  }, [_value, options, defaultValue]);
+  
   useEffect(() => {
     const handler = (e: Event) => {
       const target = e.target as Node;

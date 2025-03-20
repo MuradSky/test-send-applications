@@ -13,8 +13,6 @@ const schema = Joi.object({
   date: Joi.string().min(1).required(),
 });
 
-console.log(process.env);
-
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST || 'localhost',
   port: Number(process.env.MAIL_PORT) || 1025,

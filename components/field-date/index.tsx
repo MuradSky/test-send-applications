@@ -4,7 +4,8 @@ import s from './index.module.scss';
 import clsx from 'clsx';
 import { InputMask } from '@react-input/mask';
 
-interface FieldProps extends InputHTMLAttributes<Omit<HTMLInputElement, 'className'>> {
+interface FieldProps extends InputHTMLAttributes<Omit<HTMLInputElement, 'className' | 'value'>> {
+  value: string;
   customClass?: string;
   onErrorField: (v: boolean) => void;
 }
@@ -33,6 +34,12 @@ const Filed = ({
 }: FieldProps) => {
   const [date, setDate] = useState('');
   const [error, setError] = useState('');
+
+  console.log('value', value);
+
+  useEffect(() => {
+    if (value === '') setDate('');
+  }, [value]);
 
   useEffect(() => {
     if (error) {
@@ -63,7 +70,6 @@ const Filed = ({
     }
 
     if (onChange) onChange(e as ChangeEvent<Omit<HTMLInputElement, 'className'>>);
-
     setDate(value);
     setError(''); // Сбрасываем ошибку при каждом изменении
     onErrorField(false)
@@ -91,7 +97,6 @@ const Filed = ({
         customClass
       )}
     >
-     
       <span className={s.label}>
         <InputMask
           mask="dd.mm.yyyy"

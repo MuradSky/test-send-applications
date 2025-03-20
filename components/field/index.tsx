@@ -16,7 +16,6 @@ const Filed = ({
   ...props
 }: FieldProps) => {
   const [error, setError] = useState<string | null>(null);
-
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (type === 'email') {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -33,9 +32,6 @@ const Filed = ({
       }
     }
   };
-
-  console.log(error);
-
   return (
     <label className={clsx(s.field, value && s.is_filled, customClass)}>
       <input  onBlur={handleBlur} type={type} value={value} {...props} />

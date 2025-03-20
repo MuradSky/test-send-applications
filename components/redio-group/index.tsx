@@ -1,13 +1,14 @@
 'use client';
 import clsx from 'clsx';
 import s from './index.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface RadioGropProps {
   customClass?: string;
   onSelect: (v: number) => void;
   label: string;
   name?: string;
+  value?: string; 
   options: {
     label: string;
     value: number;
@@ -23,9 +24,16 @@ const RadioGroup = ({
   options,
   onSelect,
   disabled,
+  value: _value,
   name = 'radio-group',
 }: RadioGropProps) => {
   const [value, setValue] = useState(defaultValue)
+
+  useEffect(() => {
+    setValue(
+      Number(options.find(option => option.label === _value)?.value)
+    );
+  }, [_value, options, defaultValue]);
 
   const handleSelect = (v: number) => () => {
     setValue(v);

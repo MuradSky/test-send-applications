@@ -45,7 +45,9 @@ const RegisterForm = () => {
   const [isError, setIsError] = useState(false);
   const [isErrorEmail, setIsErrorEmail] = useState(false);
   const { isMobileMd } = useScreenSize();
-  const { form, handleChange, handleSubmit, setValue, resetForm } = useForm(initialState)
+  const { form, handleChange, handleSubmit, setValue, resetForm } = useForm({
+    ...initialState
+  })
 
   const onSelect = (v: number) => {
     setValue('date', 
@@ -59,7 +61,6 @@ const RegisterForm = () => {
   }
 
   const onSubmit = () => {
-    console.log(form);
     setIsLoad(true);
     fetch('/api/application', {
       method: 'POST',
@@ -82,6 +83,8 @@ const RegisterForm = () => {
     && form.occupation.length > 2 && !isError && !isErrorEmail
   )
   
+  console.log(form.birthday);
+
   return (
     <>
       <ResultModal isOpen={isOpen} isError={modalError} onClose={onClose} />
@@ -148,6 +151,7 @@ const RegisterForm = () => {
             <Select
               options={radioOptions}
               onSelect={onSelect}
+              value={form.date}
               defaultValue={2}
               disabled={isLoad}
             />
@@ -157,8 +161,10 @@ const RegisterForm = () => {
             label="Дни участия в конференции*"
             onSelect={onSelect}
             options={radioOptions}
+            value={form.date}
             defaultValue={2}
             disabled={isLoad}
+            customClass={s.radio}
           />
         }
         <Button
