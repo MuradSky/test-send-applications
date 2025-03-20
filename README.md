@@ -38,6 +38,11 @@ docker images
 docker stop junior-paytech
 docker rm junior-paytech
 docker run -d -p 3000:3000 junior-paytech
+// передать .env.prod файл
+docker run --env-file .env.prod -d -p 4000:3000 junior-paytech
+
+# Проверка настроек почты
+env | grep MAIL
 
 docker stop <container_id>
 docker rm <container_id>
